@@ -10,11 +10,7 @@ class SupabaseServices {
   final supabaseClient = SupabaseClient(supabaseUrl, supabaseKey);
 
   Future<List<Book>> getBook() async {
-    final response = await supabaseClient
-        .from('Books')
-        .select()
-        .order('name', ascending: true)
-        .execute();
+    final response = await supabaseClient.from('Books').select().execute();
 
     if (response.status == 200) {
       final datalist = response.data! as List;
@@ -24,36 +20,3 @@ class SupabaseServices {
     }
   }
 }
-
-
-
-/* 
- final result = await supabaseClient.from('Books').select().execute();
-
-    if (result.status == 200) {
-     var bookList = <Book>[];
-
-      for (var element in (response.data as List)) {
-        Book book = Book.fromJson(element);
-        bookList.add(book);
-      }
-      return bookList;
-    } else {
-      throw Exception('eror :${result.error}');
-    }
-  } 
-  
-  
-  
-  
-  
-   final datalist = response.data! as List;
-      return datalist.map((map) => Book.fromJson(map)).toList();
-  
-  
-  
-  
-  
-  
-  
-  */

@@ -1,31 +1,24 @@
 class Book {
+  late int id;
   late String name;
   late String author;
-  late DateTime strtdate;
-  late DateTime fnsdate;
+  late int page;
+  late int day;
 
   Book(
-      {required this.name,
+      {required this.id,
+      required this.name,
       required this.author,
-      required this.strtdate,
-      required this.fnsdate});
+      required this.page,
+      required this.day});
 
   factory Book.fromJson(Map<String, dynamic> map) {
     return Book(
+      id: map['id'],
       name: map['name'],
       author: map['author'],
-      strtdate: DateTime.parse(map['strtdate']),
-      fnsdate: DateTime.parse(map['fnsdate']),
+      page: map['page'],
+      day: map['day'],
     );
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-
-    data['name'] = name;
-    data['author'] = author;
-    data['strtdate'] = strtdate;
-    data['fnsdate'] = fnsdate;
-    return data;
   }
 }
