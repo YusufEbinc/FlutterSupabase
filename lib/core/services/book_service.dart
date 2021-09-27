@@ -1,5 +1,6 @@
-import 'package:flutter_book_app/model/book.dart';
-import 'package:flutter_book_app/model/trend_books.dart';
+import 'package:flutter_book_app/model/book_all_model.dart';
+import 'package:flutter_book_app/model/book_model.dart';
+import 'package:flutter_book_app/model/books_list_model.dart';
 
 import 'package:supabase/supabase.dart';
 
@@ -21,12 +22,23 @@ class SupabaseServices {
     }
   }
 
-  Future<List<TrendBook>> getBooktrend() async {
+  Future<List<BookList>> getBooktrend() async {
     final response = await supabaseClient.from('trendbooks').select().execute();
 
     if (response.status == 200) {
       final datalist = response.data! as List;
-      return datalist.map((map) => TrendBook.fromJson(map)).toList();
+      return datalist.map((map) => BookList.fromJson(map)).toList();
+    } else {
+      throw Exception('Eror:${response.error}');
+    }
+  }
+
+  Future<List<BookAll>> getBookAll() async {
+    final response = await supabaseClient.from('allbook').select().execute();
+
+    if (response.status == 200) {
+      final datalist = response.data! as List;
+      return datalist.map((map) => BookAll.fromJson(map)).toList();
     } else {
       throw Exception('Eror:${response.error}');
     }

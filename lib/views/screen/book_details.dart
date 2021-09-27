@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_book_app/constant/constant_color.dart';
-import 'package:flutter_book_app/model/trend_books.dart';
+import 'package:flutter_book_app/model/book_all_model.dart';
+
 import 'package:flutter_book_app/views/widgets/text_widget.dart';
 
 class BookDetailsPage extends StatelessWidget {
-  final TrendBook books;
+  final BookAll books;
 
-  const BookDetailsPage({Key? key, required this.books}) : super(key: key);
+  const BookDetailsPage({
+    Key? key,
+    required this.books,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +27,7 @@ class BookDetailsPage extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
-                    color: Colors.grey.shade300,
+                    color: kBackground,
                   ),
                   child: Padding(
                     padding: EdgeInsets.symmetric(vertical: size.height * .07),
@@ -73,7 +77,7 @@ class BookDetailsPage extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: TextWidegt(
                             titleName: books.name,
-                            fontSize: 20,
+                            fontSize: 22,
                             fontName: 'Monts',
                             textColor: blackColor),
                       ),

@@ -24,11 +24,14 @@ class OnBoardingPage extends StatelessWidget {
                 textColor: blackColor,
               ),
             ),
-            titleWidget: const TextWidegt(
-              fontName: 'Monts',
-              fontSize: 30,
-              titleName: 'Cicero',
-              textColor: blackColor,
+            titleWidget: const Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: TextWidegt(
+                fontName: 'Monts',
+                fontSize: 30,
+                titleName: 'Cicero',
+                textColor: blackColor,
+              ),
             ),
             image: Padding(
               padding: const EdgeInsets.only(top: 40),
@@ -49,11 +52,14 @@ class OnBoardingPage extends StatelessWidget {
                 textColor: blackColor,
               ),
             ),
-            titleWidget: const TextWidegt(
-              fontName: 'Monts',
-              fontSize: 30,
-              titleName: ' Fran Lebowitz',
-              textColor: blackColor,
+            titleWidget: const Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: TextWidegt(
+                fontName: 'Monts',
+                fontSize: 30,
+                titleName: ' Fran Lebowitz',
+                textColor: blackColor,
+              ),
             ),
             image: Padding(
               padding: const EdgeInsets.only(top: 60),
@@ -72,11 +78,14 @@ class OnBoardingPage extends StatelessWidget {
               titleName: 'Today a reader, tomorrow a leader',
               textColor: blackColor,
             ),
-            titleWidget: const TextWidegt(
-              fontName: 'Monts',
-              fontSize: 30,
-              titleName: 'Margaret Fuller',
-              textColor: blackColor,
+            titleWidget: const Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: TextWidegt(
+                fontName: 'Monts',
+                fontSize: 30,
+                titleName: 'Margaret Fuller',
+                textColor: blackColor,
+              ),
             ),
             image: Padding(
               padding: const EdgeInsets.only(top: 30),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_book_app/constant/constant_color.dart';
 import 'package:flutter_book_app/core/services/book_service.dart';
-import 'package:flutter_book_app/model/trend_books.dart';
+import 'package:flutter_book_app/model/book_all_model.dart';
+import 'package:flutter_book_app/model/books_list_model.dart';
 import 'package:flutter_book_app/views/screen/book_details.dart';
 import 'package:flutter_book_app/views/screen/book_screen.dart';
 import 'package:flutter_book_app/views/widgets/text_widget.dart';
@@ -30,9 +31,15 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: kBackground,
         elevation: 0,
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.person),
+          iconSize: 30,
+          color: blackColor,
+        ),
         actions: [
           IconButton(
-            iconSize: 25,
+            iconSize: 30,
             onPressed: () {
               Navigator.push(
                 context,
@@ -67,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                     Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Icon(
-                        Icons.arrow_forward,
+                        Icons.double_arrow,
                         size: 25,
                         color: blackColor,
                       ),
@@ -77,44 +84,33 @@ class _HomePageState extends State<HomePage> {
           ),
           Expanded(
             flex: 3,
-            child: FutureBuilder<List<TrendBook>>(
+            child: FutureBuilder<List<BookList>>(
               future: service.getBooktrend(),
-              builder: (context, AsyncSnapshot<List<TrendBook>> snapshot) {
+              builder: (context, AsyncSnapshot<List<BookList>> snapshot) {
                 return ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: snapshot.data?.length ?? 0,
                   itemBuilder: (BuildContext context, int index) {
                     if (snapshot.hasData) {
-                      return InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  BookDetailsPage(books: snapshot.data![index]),
-                            ),
-                          );
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            width: size.width * .31,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(25),
-                              boxShadow: const [
-                                BoxShadow(
-                                  offset: Offset(0, 4),
-                                  spreadRadius: -6,
-                                  blurRadius: 10,
-                                )
-                              ],
-                            ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(15),
-                              child: Image.network(
-                                snapshot.data![index].imageurl,
-                                fit: BoxFit.cover,
-                              ),
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          width: size.width * .31,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25),
+                            boxShadow: const [
+                              BoxShadow(
+                                offset: Offset(0, 4),
+                                spreadRadius: -6,
+                                blurRadius: 10,
+                              )
+                            ],
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15),
+                            child: Image.network(
+                              snapshot.data![index].imageurl,
+                              fit: BoxFit.cover,
                             ),
                           ),
                         ),
@@ -143,9 +139,9 @@ class _HomePageState extends State<HomePage> {
           ),
           Expanded(
             flex: 6,
-            child: FutureBuilder<List<TrendBook>>(
-              future: service.getBooktrend(),
-              builder: (context, AsyncSnapshot<List<TrendBook>> snapshot) {
+            child: FutureBuilder<List<BookAll>>(
+              future: service.getBookAll(),
+              builder: (context, AsyncSnapshot<List<BookAll>> snapshot) {
                 return ListView.builder(
                   itemCount: snapshot.data?.length ?? 0,
                   itemBuilder: (BuildContext context, int index) {

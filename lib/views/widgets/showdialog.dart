@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_book_app/constant/constant_color.dart';
 
 class ShowDialog extends StatelessWidget {
   const ShowDialog({
@@ -14,7 +15,7 @@ class ShowDialog extends StatelessWidget {
       width: 60,
       height: 60,
       decoration: const BoxDecoration(
-        color: Colors.red,
+        color: kBackground,
         shape: BoxShape.circle,
       ),
       child: IconButton(

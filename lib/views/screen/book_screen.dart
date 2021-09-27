@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_book_app/constant/constant_color.dart';
 import 'package:flutter_book_app/core/services/book_service.dart';
-import 'package:flutter_book_app/model/book.dart';
+import 'package:flutter_book_app/model/book_model.dart';
 
 import 'package:flutter_book_app/views/widgets/showdialog.dart';
 
@@ -36,39 +36,59 @@ class _BookPageState extends State<BookPage> {
     service = SupabaseServices();
   }
 
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 /////////////////////  ALERT DİALOG  ///////////////
     AlertDialog alert = AlertDialog(
       elevation: 0,
-      backgroundColor: kBackground,
+      backgroundColor: whiteColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-      title: Row(
-        children: const [
-          TextWidegt(
-              titleName: 'Kitap Ekleyin',
-              fontSize: 20,
-              fontName: 'Monts',
-              textColor: blackColor),
-        ],
+      title: Form(
+        key: _formKey,
+        child: Row(
+          children: [
+            IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.arrow_back)),
+            const TextWidegt(
+                titleName: 'Kitap Ekleyin',
+                fontSize: 20,
+                fontName: 'Monts',
+                textColor: blackColor),
+          ],
+        ),
       ),
       titlePadding: EdgeInsets.only(
           left: size.width * .13,
           top: size.height * .015,
           bottom: size.height * .015),
       actions: [
-        TextField(
-          controller: name,
-          decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 5),
+          child: TextFormField(
+            controller: name,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              hintText: "Kitap adı giriniz",
+              hintStyle: const TextStyle(fontSize: 13),
             ),
-            hintText: "Kitap adı giriniz",
-            hintStyle: const TextStyle(fontSize: 13),
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'Lütfen boş bırakmayınız';
+              }
+              return null;
+            },
+            onSaved: (deger) => page = deger as TextEditingController,
           ),
         ),
-        TextField(
+        TextFormField(
           controller: author,
           decoration: InputDecoration(
             border: OutlineInputBorder(
@@ -77,19 +97,36 @@ class _BookPageState extends State<BookPage> {
             hintText: "Yazar adı giriniz",
             hintStyle: const TextStyle(fontSize: 13),
           ),
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'Lütfen boş bırakmayınız';
+            }
+            return null;
+          },
+          onSaved: (deger) => page = deger as TextEditingController,
         ),
-        TextField(
-          controller: page,
-          keyboardType: TextInputType.number,
-          decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 5),
+          child: TextFormField(
+            controller: page,
+            keyboardType: TextInputType.number,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              hintText: "Sayfa Sayısını Giriniz",
+              hintStyle: const TextStyle(fontSize: 13),
             ),
-            hintText: "Sayfa Sayısını Giriniz",
-            hintStyle: const TextStyle(fontSize: 13),
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'Lütfen boş bırakmayınız';
+              }
+              return null;
+            },
+            onSaved: (deger) => page = deger as TextEditingController,
           ),
         ),
-        TextField(
+        TextFormField(
           controller: day,
           keyboardType: TextInputType.number,
           decoration: InputDecoration(
@@ -99,15 +136,22 @@ class _BookPageState extends State<BookPage> {
             hintText: "Kaç Günde Okudunuz",
             hintStyle: const TextStyle(fontSize: 13),
           ),
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'Lütfen boş bırakmayınız';
+            }
+            return null;
+          },
+          onSaved: (deger) => page = deger as TextEditingController,
         ),
         Container(
-          margin: EdgeInsets.only(right: size.width * .15),
+          margin: EdgeInsets.only(right: size.width * .18),
           width: size.width * 0.4,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               elevation: 0,
               onPrimary: blackColor,
-              primary: whiteColor,
+              primary: kBackground,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
               ),
@@ -118,7 +162,14 @@ class _BookPageState extends State<BookPage> {
                 fontName: 'Monts',
                 textColor: blackColor),
             onPressed: () {
-              addBook();
+              if (_formKey.currentState!.validate()) {
+                addBook();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Eklendi'),
+                  ),
+                );
+              }
             },
           ),
         ),
@@ -127,6 +178,14 @@ class _BookPageState extends State<BookPage> {
 
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(Icons.arrow_back),
+          iconSize: 25,
+          color: blackColor,
+        ),
         title: Padding(
           padding: EdgeInsets.only(left: size.width * .15),
           child: const TextWidegt(
@@ -191,7 +250,7 @@ class _BookPageState extends State<BookPage> {
                             height: size.height * .17,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
-                              color: kBackground,
+                              color: kBackground1,
                             ),
                             child: Padding(
                               padding: const EdgeInsets.symmetric(
@@ -271,7 +330,7 @@ class _BookPageState extends State<BookPage> {
 
   Future<void> addBook() async {
     try {
-      /*    final response = */ await supabaseClient.from('Books').insert({
+      await supabaseClient.from('Books').insert({
         'name': name.text,
         'author': author.text,
         'page': page.text,
