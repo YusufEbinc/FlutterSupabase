@@ -1,7 +1,6 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
-import 'package:flutter_book_app/views/screen/home_screen.dart';
+
+import 'package:flutter_book_app/views/screen/onboarding_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -10,9 +9,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
+      title: 'Kitap Uygulaması',
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: OnBoardingPage(),
     );
   }
 }

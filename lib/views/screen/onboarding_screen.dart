@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_book_app/constant/constant_color.dart';
+
 import 'package:flutter_book_app/views/screen/home_screen.dart';
+
 import 'package:flutter_book_app/views/widgets/text_widget.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
@@ -92,16 +94,24 @@ class OnBoardingPage extends StatelessWidget {
           size: 30,
           color: blackColor,
         ),
-        onDone: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const HomePage()));
-        },
+        onDone: () => nextHomePage(context),
         showDoneButton: true,
         showNextButton: false,
         showSkipButton: false,
         globalBackgroundColor: kBackground,
         skipColor: blackColor,
         nextColor: blackColor,
+      ),
+    );
+  }
+
+  Future<void> nextHomePage(
+    BuildContext context,
+  ) async {
+    await Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => (const HomePage()),
       ),
     );
   }
