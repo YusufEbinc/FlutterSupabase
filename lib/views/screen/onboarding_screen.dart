@@ -17,7 +17,7 @@ class OnBoardingPage extends StatelessWidget {
         pages: [
           PageViewModel(
             bodyWidget: const Center(
-              child: TextWidegt(
+              child: TextWidget(
                 fontName: 'Caslon',
                 fontSize: 25,
                 titleName: 'A room without books is like a body without a soul',
@@ -26,7 +26,7 @@ class OnBoardingPage extends StatelessWidget {
             ),
             titleWidget: const Padding(
               padding: EdgeInsets.only(top: 20),
-              child: TextWidegt(
+              child: TextWidget(
                 fontName: 'Monts',
                 fontSize: 30,
                 titleName: 'Cicero',
@@ -45,7 +45,7 @@ class OnBoardingPage extends StatelessWidget {
           ),
           PageViewModel(
             bodyWidget: const Center(
-              child: TextWidegt(
+              child: TextWidget(
                 fontName: 'Caslon',
                 fontSize: 25,
                 titleName: 'Think before you speak read before you think',
@@ -54,7 +54,7 @@ class OnBoardingPage extends StatelessWidget {
             ),
             titleWidget: const Padding(
               padding: EdgeInsets.only(top: 20),
-              child: TextWidegt(
+              child: TextWidget(
                 fontName: 'Monts',
                 fontSize: 30,
                 titleName: ' Fran Lebowitz',
@@ -72,7 +72,7 @@ class OnBoardingPage extends StatelessWidget {
             ),
           ),
           PageViewModel(
-            bodyWidget: const TextWidegt(
+            bodyWidget: const TextWidget(
               fontName: 'Caslon',
               fontSize: 25,
               titleName: 'Today a reader, tomorrow a leader',
@@ -80,7 +80,7 @@ class OnBoardingPage extends StatelessWidget {
             ),
             titleWidget: const Padding(
               padding: EdgeInsets.only(top: 20),
-              child: TextWidegt(
+              child: TextWidget(
                 fontName: 'Monts',
                 fontSize: 30,
                 titleName: 'Margaret Fuller',

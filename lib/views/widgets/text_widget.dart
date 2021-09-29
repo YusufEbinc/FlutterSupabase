@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class TextWidegt extends StatelessWidget {
+class TextWidget extends StatelessWidget {
   final String titleName;
   final double? fontSize;
   final String fontName;
   final Color textColor;
 
-  const TextWidegt({
+  const TextWidget({
     Key? key,
     required this.titleName,
     required this.fontSize,

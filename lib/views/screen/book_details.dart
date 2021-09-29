@@ -67,7 +67,7 @@ class BookDetailsPage extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: TextWidegt(
+                        child: TextWidget(
                             titleName: books.author,
                             fontSize: 20,
                             fontName: 'Caslon',
@@ -75,7 +75,7 @@ class BookDetailsPage extends StatelessWidget {
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: TextWidegt(
+                        child: TextWidget(
                             titleName: books.name,
                             fontSize: 22,
                             fontName: 'Monts',
@@ -83,7 +83,7 @@ class BookDetailsPage extends StatelessWidget {
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: TextWidegt(
+                        child: TextWidget(
                             titleName: books.details,
                             fontSize: 15,
                             fontName: 'Caslon',

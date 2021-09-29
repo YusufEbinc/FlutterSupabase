@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_book_app/constant/constant_color.dart';
 import 'package:flutter_book_app/core/services/book_service.dart';
 import 'package:flutter_book_app/model/book_model.dart';
-
 import 'package:flutter_book_app/views/widgets/showdialog.dart';
-
 import 'package:flutter_book_app/views/widgets/text_widget.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
@@ -55,7 +53,7 @@ class _BookPageState extends State<BookPage> {
                   Navigator.pop(context);
                 },
                 icon: const Icon(Icons.arrow_back)),
-            const TextWidegt(
+            const TextWidget(
                 titleName: 'Kitap Ekleyin',
                 fontSize: 20,
                 fontName: 'Monts',
@@ -156,7 +154,7 @@ class _BookPageState extends State<BookPage> {
                 borderRadius: BorderRadius.circular(30),
               ),
             ),
-            child: const TextWidegt(
+            child: const TextWidget(
                 titleName: 'Ekle',
                 fontSize: 20,
                 fontName: 'Monts',
@@ -188,7 +186,7 @@ class _BookPageState extends State<BookPage> {
         ),
         title: Padding(
           padding: EdgeInsets.only(left: size.width * .15),
-          child: const TextWidegt(
+          child: const TextWidget(
             titleName: 'Kitaplarım',
             fontSize: 20,
             fontName: 'Monts',
@@ -262,7 +260,7 @@ class _BookPageState extends State<BookPage> {
                                 children: [
                                   Column(
                                     children: [
-                                      TextWidegt(
+                                      TextWidget(
                                         titleName: snapshot.data![index].name,
                                         fontSize: 23,
                                         fontName: 'Monts',
@@ -271,7 +269,7 @@ class _BookPageState extends State<BookPage> {
                                       SizedBox(
                                         height: size.height * .010,
                                       ),
-                                      TextWidegt(
+                                      TextWidget(
                                         titleName: snapshot.data![index].author
                                             .toUpperCase(),
                                         fontSize: 18,
@@ -284,7 +282,7 @@ class _BookPageState extends State<BookPage> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
-                                            TextWidegt(
+                                            TextWidget(
                                               titleName:
                                                   'Sayfa: ${snapshot.data![index].page.toString()}',
                                               fontSize: 17,
@@ -294,7 +292,7 @@ class _BookPageState extends State<BookPage> {
                                             SizedBox(
                                               width: size.width * .15,
                                             ),
-                                            TextWidegt(
+                                            TextWidget(
                                               titleName:
                                                   'Gün: ${snapshot.data![index].day.toString()}',
                                               fontSize: 17,

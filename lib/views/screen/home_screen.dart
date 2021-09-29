@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.only(left: 10),
                 child: Row(
                   children: const [
-                    TextWidegt(
+                    TextWidget(
                       titleName: 'Trendler',
                       fontSize: 25,
                       fontName: 'Caslon',
@@ -129,7 +129,7 @@ class _HomePageState extends State<HomePage> {
             flex: 1,
             child: Padding(
               padding: EdgeInsets.only(top: 25, left: 10),
-              child: TextWidegt(
+              child: TextWidget(
                 titleName: 'Kitaplar',
                 fontSize: 25,
                 fontName: 'Caslon',
@@ -183,12 +183,12 @@ class _HomePageState extends State<HomePage> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      TextWidegt(
+                                      TextWidget(
                                           titleName: snapshot.data![index].name,
                                           fontSize: 20,
                                           fontName: 'Monts',
                                           textColor: blackColor),
-                                      TextWidegt(
+                                      TextWidget(
                                           titleName:
                                               snapshot.data![index].author,
                                           fontSize: 15,
