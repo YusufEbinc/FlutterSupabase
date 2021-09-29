@@ -41,5 +41,8 @@ flutter_slidable paketi kitap silme işleminde kullanılmıştır.
 [Libre_Caslon_Text](https://fonts.google.com/specimen/Libre+Caslon+Text?query=Libre+) <br/> 
 [Montserrat](https://fonts.google.com/specimen/Montserrat?query=montserrat) <br/> 
 
+## Eklenecek Kısımlar 
+Login sayfası ve profil sayfası eklenecektir.
+
 
 
